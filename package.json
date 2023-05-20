@@ -1,0 +1,15 @@
+{
+  "name": "com.orbhall.framework",
+  "displayName": "Orb Hall Framework",
+  "version": "1.0.0",
+  "unity": "2022.2",
+  "description": "Common gameplay and editor framework for Orb Hall games.",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "category": "Editor",
+  "dependencies": {},
+  "publishConfig": {
+    "registry": "https://package.openupm.com"
+  }
+}

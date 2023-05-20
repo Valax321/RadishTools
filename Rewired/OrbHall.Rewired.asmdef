@@ -1,0 +1,20 @@
+{
+    "name": "OrbHall.Rewired",
+    "rootNamespace": "OrbHall.Rewired",
+    "references": [
+        "GUID:8bdea64740185594d97902a78bd70061"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "REWIRED_IN_PROJECT"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

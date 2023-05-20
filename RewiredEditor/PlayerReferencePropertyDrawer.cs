@@ -1,0 +1,19 @@
+﻿using Rewired;
+using UnityEditor;
+using UnityEditor.IMGUI.Controls;
+
+namespace OrbHall.Rewired
+{
+    [CustomPropertyDrawer(typeof(PlayerReference))]
+    internal sealed class PlayerReferencePropertyDrawer : RewiredReferencePropertyDrawerBase
+    {
+        protected override void GetItems(InputManager_Base inputManager, AdvancedDropdownItem parent)
+        {
+            foreach (var player in inputManager.userData.GetPlayerIds())
+            {
+                parent.AddChild(new RewiredEntryDropdownItem(inputManager.userData.GetPlayerNameById(player), 
+                    player, inputManager.userData.GetPlayerNameById(player)));
+            }
+        }
+    }
+}
