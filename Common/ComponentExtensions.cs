@@ -1,15 +1,17 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 
-[PublicAPI]
-// ReSharper disable once CheckNamespace
-public static class ComponentExtensions
+namespace OrbHall
 {
-    public static T GetOrCreateComponent<T>(this GameObject go) where T : Component
+    [PublicAPI]
+    public static class ComponentExtensions
     {
-        if (go.TryGetComponent(out T c))
-            return c;
+        public static T GetOrCreateComponent<T>(this GameObject go) where T : Component
+        {
+            if (go.TryGetComponent(out T c))
+                return c;
 
-        return go.AddComponent<T>();
+            return go.AddComponent<T>();
+        }
     }
 }

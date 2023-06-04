@@ -1,13 +1,18 @@
 ﻿using System;
+using JetBrains.Annotations;
 using OrbHall;
 
-public static class SerializedTypeExtensions
+namespace OrbHall
 {
-    public static SerializedType ToSerializedType(this Type type)
+    [PublicAPI]
+    public static class SerializedTypeExtensions
     {
-        return new SerializedType
+        public static SerializedType ToSerializedType(this Type type)
         {
-            type = type
-        };
+            return new SerializedType
+            {
+                type = type
+            };
+        }
     }
 }

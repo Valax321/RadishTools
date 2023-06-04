@@ -2,28 +2,30 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-[PublicAPI]
-// ReSharper disable once CheckNamespace
-public static class QuaternionExtensions
+namespace OrbHall
 {
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Quaternion WithPitch(this Quaternion q, float pitch)
+    [PublicAPI]
+    public static class QuaternionExtensions
     {
-        var e = q.eulerAngles;
-        return Quaternion.Euler(pitch, e.y, e.z);
-    }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion WithPitch(this Quaternion q, float pitch)
+        {
+            var e = q.eulerAngles;
+            return Quaternion.Euler(pitch, e.y, e.z);
+        }
     
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Quaternion WithRoll(this Quaternion q, float roll)
-    {
-        var e = q.eulerAngles;
-        return Quaternion.Euler(e.x, e.y, roll);
-    }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion WithRoll(this Quaternion q, float roll)
+        {
+            var e = q.eulerAngles;
+            return Quaternion.Euler(e.x, e.y, roll);
+        }
     
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Quaternion WithYaw(this Quaternion q, float yaw)
-    {
-        var e = q.eulerAngles;
-        return Quaternion.Euler(q.x, yaw, e.z);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion WithYaw(this Quaternion q, float yaw)
+        {
+            var e = q.eulerAngles;
+            return Quaternion.Euler(q.x, yaw, e.z);
+        }
     }
 }

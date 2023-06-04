@@ -1,37 +1,39 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
 
-[PublicAPI]
-// ReSharper disable once CheckNamespace
-public static class ArrayExtensions
+namespace OrbHall
 {
-    public static T[] With<T>(this T[] arr, T item)
+    [PublicAPI]
+    public static class ArrayExtensions
     {
-        if (arr.Contains(item))
-            return arr;
-
-        var newArr = new T[arr.Length + 1];
-        for (var i = 0; i < arr.Length; i++)
-            newArr[i] = arr[i];
-        newArr[arr.Length] = item;
-        return newArr;
-    }
-
-    public static T[] Without<T>(this T[] arr, T item)
-    {
-        if (!arr.Contains(item))
-            return arr;
-
-        var newArr = new T[arr.Length - 1];
-        var i2 = 0;
-        for (var i = 0; i < arr.Length; i++)
+        public static T[] With<T>(this T[] arr, T item)
         {
-            if (Equals(arr[i], item))
-                continue;
+            if (arr.Contains(item))
+                return arr;
 
-            newArr[i2++] = arr[i];
+            var newArr = new T[arr.Length + 1];
+            for (var i = 0; i < arr.Length; i++)
+                newArr[i] = arr[i];
+            newArr[arr.Length] = item;
+            return newArr;
         }
 
-        return newArr;
+        public static T[] Without<T>(this T[] arr, T item)
+        {
+            if (!arr.Contains(item))
+                return arr;
+
+            var newArr = new T[arr.Length - 1];
+            var i2 = 0;
+            for (var i = 0; i < arr.Length; i++)
+            {
+                if (Equals(arr[i], item))
+                    continue;
+
+                newArr[i2++] = arr[i];
+            }
+
+            return newArr;
+        }
     }
 }
