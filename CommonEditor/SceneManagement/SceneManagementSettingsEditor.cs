@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace OrbHall.SceneManagement
+namespace Radish.SceneManagement
 {
     [CustomEditor(typeof(SceneManagementSettings))]
     public class SceneManagementSettingsEditor : Editor

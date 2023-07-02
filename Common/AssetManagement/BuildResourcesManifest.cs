@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace OrbHall
+namespace Radish
 {
     public sealed class BuildResourcesManifest : ScriptableObject, ISerializationCallbackReceiver
     {

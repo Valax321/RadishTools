@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace OrbHall
+namespace Radish
 {
     public sealed class BuildScenesManifest : ScriptableObject, ISerializationCallbackReceiver
     {

@@ -2,9 +2,9 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace OrbHall
+namespace Radish
 {
-    public static class OrbEditorGUI
+    public static class RadishEditorGUI
     {
         public static bool EditorPrefsFoldoutHeaderGroup(string key, GUIContent content, GUIStyle style = null,
             Action<Rect> menuAction = null, GUIStyle menuIcon = null)

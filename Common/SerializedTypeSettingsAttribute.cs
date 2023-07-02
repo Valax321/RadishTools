@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OrbHall
+namespace Radish
 {
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class SerializedTypeSettingsAttribute : Attribute

@@ -1,6 +1,6 @@
 {
-    "name": "OrbHall.Common.Editor",
-    "rootNamespace": "OrbHall",
+    "name": "Radish.Common.Editor",
+    "rootNamespace": "Radish",
     "references": [
         "GUID:8bdea64740185594d97902a78bd70061"
     ],

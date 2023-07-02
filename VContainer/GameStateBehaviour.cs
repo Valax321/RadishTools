@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using VContainer.Unity;
 
-namespace OrbHall.VContainer
+namespace Radish.VContainer
 {
     public abstract class GameStateBehaviour : LifetimeScope
     {

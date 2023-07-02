@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace OrbHall
+namespace Radish
 {
     [Serializable]
     public sealed class SoftSceneReference : ISoftObjectReference

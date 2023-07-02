@@ -1,4 +1,4 @@
-﻿namespace OrbHall
+﻿namespace Radish
 {
     public interface IEventBusMessage
     {

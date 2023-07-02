@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 
-namespace OrbHall
+namespace Radish
 {
     internal sealed class BuildManifestGenerator : IPreprocessBuildWithReport
     {

@@ -1,6 +1,6 @@
 {
-    "name": "OrbHall.Common",
-    "rootNamespace": "OrbHall",
+    "name": "Radish.Common",
+    "rootNamespace": "Radish",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 
-namespace OrbHall
+namespace Radish
 {
     [PublicAPI]
     public static class DictionaryExtensions

@@ -1,17 +1,16 @@
 {
-    "name": "OrbHall.Rewired.Editor",
-    "rootNamespace": "OrbHall.Rewired",
+    "name": "Radish.Rewired",
+    "rootNamespace": "Radish.Rewired",
     "references": [
-        "GUID:90cf8179278677c4294ba6854bd7d439",
         "GUID:8bdea64740185594d97902a78bd70061"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
-    "precompiledReferences": [],
+    "precompiledReferences": [
+        ""
+    ],
     "autoReferenced": true,
     "defineConstraints": [
         "REWIRED_IN_PROJECT"

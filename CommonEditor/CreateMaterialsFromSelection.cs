@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace OrbHall
+namespace Radish
 {
     internal static class CreateMaterialFromSelection
     {

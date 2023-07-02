@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace OrbHall.Settings
+namespace Radish.Settings
 {
     public abstract class ProjectSettingsRepository : ScriptableObject
     {

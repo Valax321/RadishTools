@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 
-namespace OrbHall
+namespace Radish
 {
     public interface ILogger
     {

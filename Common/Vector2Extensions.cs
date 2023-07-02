@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace OrbHall
+namespace Radish
 {
     [PublicAPI]
     public static class Vector2Extensions

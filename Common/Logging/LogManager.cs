@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using Debug = UnityEngine.Debug;
 
-namespace OrbHall
+namespace Radish
 {
     [PublicAPI]
     public static class LogManager

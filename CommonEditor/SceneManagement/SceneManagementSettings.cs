@@ -1,9 +1,9 @@
-﻿using OrbHall.Settings;
+﻿using Radish.Settings;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace OrbHall.SceneManagement
+namespace Radish.SceneManagement
 {
     public sealed class SceneManagementSettings : ProjectSettingsRepository
     {

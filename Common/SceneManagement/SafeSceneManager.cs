@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace OrbHall.SceneManagement
+namespace Radish.SceneManagement
 {
     public static class SafeSceneManager
     {

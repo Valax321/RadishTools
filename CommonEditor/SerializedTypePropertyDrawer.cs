@@ -7,7 +7,7 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace OrbHall
+namespace Radish
 {
     [CustomPropertyDrawer(typeof(SerializedType))]
     public class SerializedTypePropertyDrawer : PropertyDrawer

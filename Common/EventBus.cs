@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace OrbHall
+namespace Radish
 {
     [PublicAPI]
     public class EventBus<T> where T : struct, IEventBusMessage
