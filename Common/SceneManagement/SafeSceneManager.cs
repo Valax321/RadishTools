@@ -1,11 +1,13 @@
 ﻿#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 #endif
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Radish.SceneManagement
 {
+    [PublicAPI]
     public static class SafeSceneManager
     {
         public delegate void OnSceneLoadBegin(string scenePath);
