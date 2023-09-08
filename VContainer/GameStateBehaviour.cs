@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace Radish.VContainer
@@ -8,6 +9,18 @@ namespace Radish.VContainer
         public virtual bool persistent => false;
 
         private static GameObject s_ActiveStateObject;
+
+        [PublicAPI]
+        public static void InjectIntoCurrentState(GameObject instance)
+        {
+            if (s_ActiveStateObject)
+            {
+                if (s_ActiveStateObject.TryGetComponent<GameStateBehaviour>(out var b))
+                {
+                    b.Container.InjectGameObject(instance);
+                }
+            }
+        }
 
         protected override void Awake()
         {
