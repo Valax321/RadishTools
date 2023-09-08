@@ -10,6 +10,8 @@ namespace Radish
 
         public string guid => m_Guid;
 
+        public bool isValid => !string.IsNullOrEmpty(m_Guid);
+
         public override string ToString()
         {
 #if !UNITY_EDITOR

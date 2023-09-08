@@ -10,6 +10,7 @@ namespace Radish
         [SerializeField] private string m_Guid;
 
         public string guid => m_Guid;
+        public bool isValid => !string.IsNullOrEmpty(m_Guid);
 
         public override string ToString()
         {
