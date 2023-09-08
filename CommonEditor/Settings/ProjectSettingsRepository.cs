@@ -9,7 +9,7 @@ namespace Radish.Settings
     {
         private static string GetSettingsPathForType(Type t)
         {
-            return Path.Combine("ProjectSettings", "OrbHall", $"{t.Name}.json");
+            return Path.Combine("ProjectSettings", "GameSettings", $"{t.Name}.json");
         }
         
         public static T Load<T>() where T : ProjectSettingsRepository
