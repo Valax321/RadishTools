@@ -44,7 +44,7 @@ namespace Radish.SceneManagement
         [SettingsProvider]
         private static SettingsProvider GetSceneManagementSettingsProvider()
         {
-            var provider = AssetSettingsProvider.CreateProviderFromObject("Orb Hall/Scene Management", instance);
+            var provider = AssetSettingsProvider.CreateProviderFromObject("Game/Scene Management", instance);
             provider.keywords = SettingsProvider.GetSearchKeywordsFromSerializedObject(new SerializedObject(instance));
             return provider;
         }

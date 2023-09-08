@@ -7,7 +7,7 @@ namespace Radish
 {
     internal sealed class BuildManifestGenerator : IPreprocessBuildWithReport
     {
-        [MenuItem("Tools/Orb Hall/Create Build Manifests", false)]
+        [MenuItem("Tools/Asset Management/Create Build Manifests", false)]
         private static void CreateManifests()
         {
             var generator = new BuildManifestGenerator();
