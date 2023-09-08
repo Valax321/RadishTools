@@ -1,8 +1,11 @@
 {
   "name": "com.radish.utilities",
   "displayName": "Radish Community Utilities",
+  "author": {
+    "name": "Radish Community Contributors"
+  },
   "version": "1.0.0",
-  "unity": "2022.2",
+  "unity": "2022.3",
   "description": "Common gameplay and editor framework for Radish Community games.",
   "keywords": [
   ],
