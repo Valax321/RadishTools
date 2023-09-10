@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
@@ -7,14 +8,16 @@ using JetBrains.Annotations;
 using UnityEditor;
 #endif
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
 namespace Radish
 {
     public sealed class BuildResourcesManifest : ScriptableObject, ISerializationCallbackReceiver
     {
+        [DebuggerDisplay("{guid} ({type})", Name = "{path}")]
         [Serializable]
-        private class Entry : ISerializationCallbackReceiver
+        private class Entry : ISerializationCallbackReceiver, IBuildResourcesManifestEntry
         {
             [SerializeField] private string m_Guid;
             [SerializeField] private string m_Path;
@@ -39,6 +42,11 @@ namespace Radish
             public void OnAfterDeserialize()
             {
                 type = !string.IsNullOrEmpty(m_TypeString) ? Type.GetType(m_TypeString) : null;
+            }
+
+            public override string ToString()
+            {
+                return $"{path} @ {guid} ({type.FullName})";
             }
         }
 
@@ -98,6 +106,11 @@ namespace Radish
             }
             
             return string.Empty;
+        }
+
+        public IEnumerable<IBuildResourcesManifestEntry> GetResourcesInBuild<T>() where T : Object
+        {
+            return m_Entries.Where(x => x.type.IsSubclassOf(typeof(T)) || x.type == typeof(T));
         }
 
         public void OnBeforeSerialize()
