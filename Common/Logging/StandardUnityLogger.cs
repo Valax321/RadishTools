@@ -2,7 +2,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Radish
+namespace Radish.Logging
 {
     internal sealed class StandardUnityLogger : ILogger
     {

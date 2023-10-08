@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 
-namespace Radish
+namespace Radish.Logging
 {
     public interface ILogger
     {

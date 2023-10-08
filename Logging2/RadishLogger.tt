@@ -1,0 +1,163 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#@ include file="LoggingCommon.t4" once="true" #>
+using System;
+using Cysharp.Text;
+using Object = UnityEngine.Object;
+
+namespace Radish.Logging2 {
+
+internal sealed class RadishLogger : ILogger
+{
+	public string Name { get; }
+
+	internal RadishLogger(string name)
+	{
+		Name = name;
+	}
+
+	#region Static Write Methods
+
+	private static void Write(LogLevel level, Object context, string category, string message)
+	{
+		foreach (var writer in LogManager.RegisteredLoggers)
+		{
+			writer.Write(level, context, category, message.AsSpan());
+		}
+	}
+
+	private static void WriteException(LogLevel level, Object context, string category, Exception ex)
+	{
+		using var fmt = ZString.CreateStringBuilder();
+		fmt.Append(ex);
+		var span = fmt.AsSpan();
+		foreach (var writer in LogManager.RegisteredLoggers)
+		{
+			writer.Write(level, context, category, span);
+		}
+	}
+
+	private static void WriteException(LogLevel level, Object context, string category, Exception ex, string message)
+	{
+		using var fmt = ZString.CreateStringBuilder();
+		fmt.Append(message);
+		fmt.Append(' ');
+		fmt.Append(ex);
+		var span = fmt.AsSpan();
+		foreach (var writer in LogManager.RegisteredLoggers)
+		{
+			writer.Write(level, context, category, span);
+		}
+	}
+
+<# for(var i = 1; i <= TypeParamMax; i++) { #>
+	private static void Write<<#= CreateTypeArgument(i) #>>(LogLevel level, Object context, string category, string format, <#= CreateParameters(i) #>)
+	{
+		using var fmt = ZString.CreateStringBuilder();
+		fmt.AppendFormat(format, <#= CreateParameterNames(i) #>);
+		var span = fmt.AsSpan();
+		foreach (var writer in LogManager.RegisteredLoggers)
+		{
+			writer.Write(level, context, category, span);
+		}
+	}
+
+	private static void WriteException<<#= CreateTypeArgument(i) #>>(LogLevel level, Object context, string category, Exception ex, string format, <#= CreateParameters(i) #>)
+	{
+		using var fmt = ZString.CreateStringBuilder();
+		fmt.AppendFormat(format, <#= CreateParameterNames(i) #>);
+		fmt.Append(' ');
+		fmt.Append(ex);
+		var span = fmt.AsSpan();
+		foreach (var writer in LogManager.RegisteredLoggers)
+		{
+			writer.Write(level, context, category, span);
+		}
+	}
+
+<# } #>
+	#endregion
+
+	#region Info (Interface)
+
+	public void Info(string message)
+		=> Write(LogLevel.Info, null, Name, message);
+
+	public void Info(Object context, string message)
+		=> Write(LogLevel.Info, context, Name, message);
+
+<# for(var i = 1; i <= TypeParamMax; i++) { #>
+	public void Info<<#= CreateTypeArgument(i) #>>(string format, <#= CreateParameters(i) #>) 
+		=> Write(LogLevel.Info, null, Name, format, <#= CreateParameterNames(i) #>);
+
+	public void Info<<#= CreateTypeArgument(i) #>>(Object context, string format, <#= CreateParameters(i) #>) 
+		=> Write(LogLevel.Info, context, Name, format, <#= CreateParameterNames(i) #>);
+
+<# } #>
+	#endregion
+
+	#region Warning (Interface)
+
+	public void Warn(string message)
+		=> Write(LogLevel.Warning, null, Name, message);
+
+	public void Warn(Object context, string message)
+		=> Write(LogLevel.Warning, null, Name, message);
+
+<# for(var i = 1; i <= TypeParamMax; i++) { #>
+	public void Warn<<#= CreateTypeArgument(i) #>>(string format, <#= CreateParameters(i) #>) 
+		=> Write(LogLevel.Warning, null, Name, format, <#= CreateParameterNames(i) #>);
+
+	public void Warn<<#= CreateTypeArgument(i) #>>(Object context, string format, <#= CreateParameters(i) #>) 
+		=> Write(LogLevel.Warning, context, Name, format, <#= CreateParameterNames(i) #>);
+
+<# } #>
+	#endregion
+
+	#region Error (Interface)
+
+	public void Error(string message)
+		=> Write(LogLevel.Error, null, Name, message);
+
+	public void Error(Object context, string message)
+		=> Write(LogLevel.Error, context, Name, message);
+
+<# for(var i = 1; i <= TypeParamMax; i++) { #>
+	public void Error<<#= CreateTypeArgument(i) #>>(string format, <#= CreateParameters(i) #>) 
+		=> Write(LogLevel.Error, null, Name, format, <#= CreateParameterNames(i) #>);
+
+	public void Error<<#= CreateTypeArgument(i) #>>(Object context, string format, <#= CreateParameters(i) #>) 
+		=> Write(LogLevel.Error, context, Name, format, <#= CreateParameterNames(i) #>);
+
+<# } #>
+	#endregion
+
+	#region Warning (Exception)
+
+	public void Exception(Exception ex)
+		=> WriteException(LogLevel.Exception, null, Name, ex);
+
+	public void Exception(Object context, Exception ex)
+		=> WriteException(LogLevel.Exception, context, Name, ex);
+
+	public void Exception(Exception ex, string message)
+		=> WriteException(LogLevel.Exception, null, Name, ex, message);
+
+	public void Exception(Object context, Exception ex, string message)
+		=> WriteException(LogLevel.Exception, context, Name, ex, message);
+
+<# for(var i = 1; i <= TypeParamMax; i++) { #>
+	public void Exception<<#= CreateTypeArgument(i) #>>(Exception ex, string format, <#= CreateParameters(i) #>) 
+		=> WriteException(LogLevel.Exception, null, Name, ex, format, <#= CreateParameterNames(i) #>);
+
+	public void Exception<<#= CreateTypeArgument(i) #>>(Object context, Exception ex, string format, <#= CreateParameters(i) #>) 
+		=> WriteException(LogLevel.Exception, context, Name, ex, format, <#= CreateParameterNames(i) #>);
+
+<# } #>
+	#endregion
+}
+}
