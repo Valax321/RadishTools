@@ -89,7 +89,7 @@ namespace Radish
         #endif
 
         [SerializeField] private List<Entry> m_Entries = new();
-        [SerializeField] private Dictionary<string, Entry> m_EntryLookup = new();
+        private readonly Dictionary<string, Entry> m_EntryLookup = new();
 
         [PublicAPI]
         public string GetResourcePathForAsset<T>(SoftAssetReference<T> asset) where T : Object
