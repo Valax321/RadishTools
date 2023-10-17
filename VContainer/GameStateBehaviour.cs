@@ -22,6 +22,20 @@ namespace Radish.VContainer
             }
         }
 
+        [PublicAPI]
+        public static LifetimeScope GetCurrentScope()
+        {
+            if (s_ActiveStateObject)
+            {
+                if (s_ActiveStateObject.TryGetComponent<GameStateBehaviour>(out var b))
+                {
+                    return b;
+                }
+            }
+
+            return null;
+        }
+
         protected override void Awake()
         {
             base.Awake();
