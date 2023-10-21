@@ -11,9 +11,11 @@ namespace Radish.SceneManagement
     public static class SafeSceneManager
     {
         public delegate void OnSceneLoadBegin(string scenePath);
+        public delegate void OnSceneUnloadBegin(string scenePath);
         
         public static BuildScenesManifest buildScenesManifest { get; private set; }
         public static OnSceneLoadBegin onSceneLoadBegin { get; set; }
+        public static OnSceneUnloadBegin onSceneUnloadBegin { get; set; }
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Init()
@@ -63,7 +65,15 @@ namespace Radish.SceneManagement
                 Debug.LogErrorFormat("Failed to get scene path for '{0}'", scene.guid);
                 return null;
             }
+            
+            var sceneInstance = SceneManager.GetSceneByPath(scenePath);
+            if (!sceneInstance.IsValid())
+            {
+                Debug.LogErrorFormat("Scene '{0}' is not loaded", scenePath);
+                return null;
+            }
 
+            onSceneUnloadBegin?.Invoke(scenePath);
             return SceneManager.UnloadSceneAsync(scenePath, options);
         }
 
