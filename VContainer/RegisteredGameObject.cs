@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+#if ODIN_INSPECTOR
+using Sirenix.OdinInspector;
+#endif
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -14,6 +17,9 @@ namespace Radish.VContainer
     [CreateAssetMenu(menuName = RadishConsts.MenuPrefix + "VContainer/Registered GameObject", order = RadishConsts.MenuOrder)]
     public sealed class RegisteredGameObject : ScriptableObject
     {
+        #if ODIN_INSPECTOR
+        [AssetsOnly]
+        #endif
         [SerializeField] private GameObject m_Prefab;
         [SerializeField] private bool m_DontDestroyOnLoad;
         
