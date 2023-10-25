@@ -110,7 +110,7 @@ namespace Radish
 
         public IEnumerable<IBuildResourcesManifestEntry> GetResourcesInBuild<T>() where T : Object
         {
-            return m_Entries.Where(x => x.type.IsSubclassOf(typeof(T)) || x.type == typeof(T));
+            return m_Entries.Where(x => x.type != null && x.type.IsSubclassOf(typeof(T)) || x.type == typeof(T));
         }
 
         public void OnBeforeSerialize()
