@@ -6,6 +6,7 @@ namespace Radish.Logging2.Writers
 {
     public sealed class UnityWriter : LogWriter
     {
+        [HideInCallstack]
         public override void Write(LogLevel level, Object context, string category, in ReadOnlySpan<char> formattedMessage)
         {
             Debug.unityLogger.Log(level switch

@@ -7,6 +7,7 @@
 <#@ include file="LoggingCommon.t4" once="true" #>
 using System;
 using Cysharp.Text;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Radish.Logging2 {
@@ -22,6 +23,7 @@ internal sealed class RadishLogger : ILogger
 
 	#region Static Write Methods
 
+	[HideInCallstack]
 	private static void Write(LogLevel level, Object context, string category, string message)
 	{
 		foreach (var writer in LogManager.RegisteredLoggers)
@@ -30,6 +32,7 @@ internal sealed class RadishLogger : ILogger
 		}
 	}
 
+	[HideInCallstack]
 	private static void WriteException(LogLevel level, Object context, string category, Exception ex)
 	{
 		using var fmt = ZString.CreateStringBuilder();
@@ -41,6 +44,7 @@ internal sealed class RadishLogger : ILogger
 		}
 	}
 
+	[HideInCallstack]
 	private static void WriteException(LogLevel level, Object context, string category, Exception ex, string message)
 	{
 		using var fmt = ZString.CreateStringBuilder();
@@ -55,6 +59,7 @@ internal sealed class RadishLogger : ILogger
 	}
 
 <# for(var i = 1; i <= TypeParamMax; i++) { #>
+	[HideInCallstack]
 	private static void Write<<#= CreateTypeArgument(i) #>>(LogLevel level, Object context, string category, string format, <#= CreateParameters(i) #>)
 	{
 		using var fmt = ZString.CreateStringBuilder();
@@ -66,6 +71,7 @@ internal sealed class RadishLogger : ILogger
 		}
 	}
 
+	[HideInCallstack]
 	private static void WriteException<<#= CreateTypeArgument(i) #>>(LogLevel level, Object context, string category, Exception ex, string format, <#= CreateParameters(i) #>)
 	{
 		using var fmt = ZString.CreateStringBuilder();
@@ -84,16 +90,20 @@ internal sealed class RadishLogger : ILogger
 
 	#region Info (Interface)
 
+	[HideInCallstack]
 	public void Info(string message)
 		=> Write(LogLevel.Info, null, Name, message);
 
+	[HideInCallstack]
 	public void Info(Object context, string message)
 		=> Write(LogLevel.Info, context, Name, message);
 
 <# for(var i = 1; i <= TypeParamMax; i++) { #>
+	[HideInCallstack]
 	public void Info<<#= CreateTypeArgument(i) #>>(string format, <#= CreateParameters(i) #>) 
 		=> Write(LogLevel.Info, null, Name, format, <#= CreateParameterNames(i) #>);
 
+	[HideInCallstack]
 	public void Info<<#= CreateTypeArgument(i) #>>(Object context, string format, <#= CreateParameters(i) #>) 
 		=> Write(LogLevel.Info, context, Name, format, <#= CreateParameterNames(i) #>);
 
@@ -102,16 +112,20 @@ internal sealed class RadishLogger : ILogger
 
 	#region Warning (Interface)
 
+	[HideInCallstack]
 	public void Warn(string message)
 		=> Write(LogLevel.Warning, null, Name, message);
 
+	[HideInCallstack]
 	public void Warn(Object context, string message)
 		=> Write(LogLevel.Warning, null, Name, message);
 
 <# for(var i = 1; i <= TypeParamMax; i++) { #>
+	[HideInCallstack]
 	public void Warn<<#= CreateTypeArgument(i) #>>(string format, <#= CreateParameters(i) #>) 
 		=> Write(LogLevel.Warning, null, Name, format, <#= CreateParameterNames(i) #>);
 
+	[HideInCallstack]
 	public void Warn<<#= CreateTypeArgument(i) #>>(Object context, string format, <#= CreateParameters(i) #>) 
 		=> Write(LogLevel.Warning, context, Name, format, <#= CreateParameterNames(i) #>);
 
@@ -120,16 +134,20 @@ internal sealed class RadishLogger : ILogger
 
 	#region Error (Interface)
 
+	[HideInCallstack]
 	public void Error(string message)
 		=> Write(LogLevel.Error, null, Name, message);
 
+	[HideInCallstack]
 	public void Error(Object context, string message)
 		=> Write(LogLevel.Error, context, Name, message);
 
 <# for(var i = 1; i <= TypeParamMax; i++) { #>
+	[HideInCallstack]
 	public void Error<<#= CreateTypeArgument(i) #>>(string format, <#= CreateParameters(i) #>) 
 		=> Write(LogLevel.Error, null, Name, format, <#= CreateParameterNames(i) #>);
 
+	[HideInCallstack]
 	public void Error<<#= CreateTypeArgument(i) #>>(Object context, string format, <#= CreateParameters(i) #>) 
 		=> Write(LogLevel.Error, context, Name, format, <#= CreateParameterNames(i) #>);
 
@@ -138,22 +156,28 @@ internal sealed class RadishLogger : ILogger
 
 	#region Warning (Exception)
 
+	[HideInCallstack]
 	public void Exception(Exception ex)
 		=> WriteException(LogLevel.Exception, null, Name, ex);
 
+	[HideInCallstack]
 	public void Exception(Object context, Exception ex)
 		=> WriteException(LogLevel.Exception, context, Name, ex);
 
+	[HideInCallstack]
 	public void Exception(Exception ex, string message)
 		=> WriteException(LogLevel.Exception, null, Name, ex, message);
 
+	[HideInCallstack]
 	public void Exception(Object context, Exception ex, string message)
 		=> WriteException(LogLevel.Exception, context, Name, ex, message);
 
 <# for(var i = 1; i <= TypeParamMax; i++) { #>
+	[HideInCallstack]
 	public void Exception<<#= CreateTypeArgument(i) #>>(Exception ex, string format, <#= CreateParameters(i) #>) 
 		=> WriteException(LogLevel.Exception, null, Name, ex, format, <#= CreateParameterNames(i) #>);
 
+	[HideInCallstack]
 	public void Exception<<#= CreateTypeArgument(i) #>>(Object context, Exception ex, string format, <#= CreateParameters(i) #>) 
 		=> WriteException(LogLevel.Exception, context, Name, ex, format, <#= CreateParameterNames(i) #>);
 

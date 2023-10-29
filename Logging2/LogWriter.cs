@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Radish.Logging2
@@ -10,6 +11,7 @@ namespace Radish.Logging2
     [PublicAPI]
     public abstract class LogWriter
     {
+        [HideInCallstack]
         public abstract void Write(LogLevel level, Object context, string category, in ReadOnlySpan<char> formattedMessage);
     }
 }
