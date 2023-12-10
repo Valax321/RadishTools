@@ -26,6 +26,9 @@ namespace Radish
         private bool m_Completed;
 
         [PublicAPI]
+        public static ScopedAsyncOperation completed => new() { m_Completed = true };
+
+        [PublicAPI]
         public static ScopedAsyncOperation Create(out ActivationToken token)
         {
             var instance = new ScopedAsyncOperation();
@@ -63,6 +66,9 @@ namespace Radish
         public T result { get; private set; }
 
         private bool m_Completed;
+        
+        [PublicAPI]
+        public static ScopedAsyncOperation<T> completed => new() { m_Completed = true, result = default };
 
         [PublicAPI]
         public static ScopedAsyncOperation<T> Create(out ActivationToken token)
