@@ -10,7 +10,7 @@ using Object = UnityEngine.Object;
 namespace Radish
 {
     [CustomPropertyDrawer(typeof(SerializedType))]
-    public class SerializedTypePropertyDrawer : PropertyDrawer
+    internal class SerializedTypePropertyDrawer : PropertyDrawer
     {
         private class SerializedTypeAdvancedDropdown : AdvancedDropdown
         {
