@@ -41,8 +41,10 @@ namespace Radish
                     else
                     {
                         var ns0 = namespaceRemainder[0];
+                        var alreadyAdded = m_Items.ContainsKey(ns0);
                         var ns = m_Items.GetOrAddValue(ns0, (nn) => new NamespaceItem(nn), ns0) as NamespaceItem;
-                        AddChild(ns);
+                        if (!alreadyAdded)
+                            AddChild(ns);
                         ns?.AddChild(namespaceRemainder[1..], t);
                     }
                 }
