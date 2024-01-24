@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace OrbHall.Rewired
+namespace Radish.Rewired
 {
     internal abstract class RewiredReferencePropertyDrawerBase : PropertyDrawer
     {

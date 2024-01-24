@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 
-namespace OrbHall.Rewired
+namespace Radish.Rewired
 {
     [CustomPropertyDrawer(typeof(PlayerReference))]
     internal sealed class PlayerReferencePropertyDrawer : RewiredReferencePropertyDrawerBase

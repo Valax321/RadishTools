@@ -1,13 +1,14 @@
 ﻿using JetBrains.Annotations;
-using OrbHall.Rewired;
 using Rewired;
 
-[PublicAPI]
-// ReSharper disable once CheckNamespace
-public static class RewiredPlayerExtensions
+namespace Radish.Rewired
 {
-    public static Player GetPlayer(this ReInput.PlayerHelper playerHelper, PlayerReference player)
+    [PublicAPI]
+    public static class RewiredPlayerExtensions
     {
-        return playerHelper.GetPlayer(player.id);
+        public static Player GetPlayer(this ReInput.PlayerHelper playerHelper, PlayerReference player)
+        {
+            return playerHelper.GetPlayer(player.id);
+        }
     }
 }

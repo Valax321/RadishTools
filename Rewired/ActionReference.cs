@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace OrbHall.Rewired
+namespace Radish.Rewired
 {
     [Serializable]
     public sealed class ActionReference : IEquatable<ActionReference>
