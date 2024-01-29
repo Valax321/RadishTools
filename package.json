@@ -1,12 +1,12 @@
 {
-  "name": "com.radish.utilities",
-  "displayName": "Radish Community Utilities",
+  "name": "com.radish.commontools",
+  "displayName": "Radish Common Tools",
   "author": {
-    "name": "Radish Community Contributors"
+    "name": "Audrey Castillo"
   },
-  "version": "1.0.0",
+  "version": "2.0.0",
   "unity": "2022.3",
-  "description": "Common gameplay and editor framework for Radish Community games.",
+  "description": "Common gameplay and editor framework for Radish games.",
   "keywords": [
   ],
   "license": "MIT",
