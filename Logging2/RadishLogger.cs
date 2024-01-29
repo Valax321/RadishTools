@@ -20,7 +20,7 @@ internal sealed class RadishLogger : ILogger
 	[HideInCallstack]
 	private static void Write(LogLevel level, Object context, string category, string message)
 	{
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, message.AsSpan());
 		}
@@ -32,7 +32,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -46,7 +46,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -58,7 +58,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -72,7 +72,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -84,7 +84,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -98,7 +98,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -110,7 +110,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -124,7 +124,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -136,7 +136,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -150,7 +150,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -162,7 +162,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -176,7 +176,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -188,7 +188,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -202,7 +202,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -214,7 +214,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -228,7 +228,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -240,7 +240,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -254,7 +254,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -266,7 +266,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -280,7 +280,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -292,7 +292,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -306,7 +306,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -318,7 +318,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -332,7 +332,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -344,7 +344,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -358,7 +358,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -370,7 +370,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -384,7 +384,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -396,7 +396,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -410,7 +410,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -422,7 +422,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -436,7 +436,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -448,7 +448,7 @@ internal sealed class RadishLogger : ILogger
 		using var fmt = ZString.CreateStringBuilder();
 		fmt.AppendFormat(format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
@@ -462,7 +462,7 @@ internal sealed class RadishLogger : ILogger
 		fmt.Append(' ');
 		fmt.Append(ex);
 		var span = fmt.AsSpan();
-		foreach (var writer in LogManager.RegisteredLoggers)
+		foreach (var writer in LogManager.registeredLoggers)
 		{
 			writer.Write(level, context, category, span);
 		}
