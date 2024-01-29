@@ -12,7 +12,7 @@ namespace Radish.Rewired
             foreach (var player in inputManager.userData.GetPlayerIds())
             {
                 parent.AddChild(new RewiredEntryDropdownItem(inputManager.userData.GetPlayerNameById(player), 
-                    player, inputManager.userData.GetPlayerNameById(player)));
+                    player - 1, inputManager.userData.GetPlayerNameById(player)));
             }
         }
     }
