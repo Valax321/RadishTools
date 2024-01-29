@@ -11,6 +11,7 @@ namespace Radish
 
         public string guid => m_Guid;
         public bool isValid => !string.IsNullOrEmpty(m_Guid);
+        public string path => BuildResourcesManifest.instance.GetResourcePathForAsset(this);
 
         public override string ToString()
         {
