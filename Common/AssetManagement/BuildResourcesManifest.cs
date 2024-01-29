@@ -50,6 +50,14 @@ namespace Radish
             }
         }
 
+        public static BuildResourcesManifest instance { get; private set; }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void OnBoot()
+        {
+            instance = Load();
+        }
+        
         [PublicAPI]
         public static BuildResourcesManifest Load()
         {
