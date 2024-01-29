@@ -11,6 +11,7 @@ namespace Radish
     {
         public Guid value { get; private set; }
 
+        [HideInInspector]
         [SerializeField] private byte[] m_Data;
 
         public SerializedGuid(Guid guid)
