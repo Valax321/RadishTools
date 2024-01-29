@@ -14,9 +14,11 @@ namespace Radish.VContainer
     /// Allows for registering gameobject components with VContainer without having to hardcode different prefabs
     /// and instantiate them manually. This allows for extending games without extensive code changes and keeps things encapsulated better.
     /// </summary>
-    [CreateAssetMenu(menuName = RadishConsts.MenuPrefix + "VContainer/Registered GameObject", order = RadishConsts.MenuOrder)]
-    public sealed class RegisteredGameObject : ScriptableObject
+    [Serializable]
+    public sealed class RegisteredGameObject
     {
+        [SerializeField] private string m_Name = "New GameObject";
+        
         #if ODIN_INSPECTOR
         [AssetsOnly]
         #endif
@@ -27,7 +29,7 @@ namespace Radish.VContainer
         [SerializeField] private List<SerializedType> m_ComponentTypesToRegister = new();
 
         /// <summary>
-        /// Registers this gameobject with the specified container builder.
+        /// Registers this GameObject with the specified container builder.
         /// </summary>
         /// <param name="builder">The builder to register with.</param>
         /// <exception cref="ArgumentNullException">Thrown when <see cref="builder"/> is null.</exception>
@@ -44,9 +46,9 @@ namespace Radish.VContainer
             builder.RegisterNewPrefabInstanceComponents(m_Prefab, builderFunc: (_, o) =>
             {
                 if (m_DontDestroyOnLoad)
-                    DontDestroyOnLoad(o);
+                    UnityEngine.Object.DontDestroyOnLoad(o);
 
-                o.name = $"[{name}]";
+                o.name = $"[{m_Name}]";
 
                 foreach (var type in m_ComponentTypesToRegister)
                 {
