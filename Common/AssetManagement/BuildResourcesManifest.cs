@@ -73,7 +73,7 @@ namespace Radish
 
         #if UNITY_EDITOR
         [PublicAPI]
-        public static BuildResourcesManifest Create()
+        internal static BuildResourcesManifest Create()
         {
             var manifest = CreateInstance<BuildResourcesManifest>();
             foreach (var assetPath in AssetDatabase.GetAllAssetPaths())
