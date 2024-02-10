@@ -1,5 +1,5 @@
 {
-  "name": "com.radish.commontools",
+  "name": "com.radish.common-tools",
   "displayName": "Radish Common Tools",
   "author": {
     "name": "Audrey Castillo"
@@ -8,9 +8,18 @@
   "unity": "2022.3",
   "description": "Common gameplay and editor framework for Radish games.",
   "keywords": [
+    "Asset Management",
+    "Logging",
+    "Scene Management",
+    "Rewired",
+    "VContainer"
   ],
   "license": "MIT",
   "category": "Editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Valax321/RadishTools.git"
+  },
   "dependencies": {},
   "publishConfig": {
     "registry": "https://package.openupm.com"
