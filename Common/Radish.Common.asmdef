@@ -1,7 +1,9 @@
 {
     "name": "Radish.Common",
     "rootNamespace": "Radish",
-    "references": [],
+    "references": [
+        "GUID:33661e06c33d31b4c9223810bf503247"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
@@ -9,6 +11,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.cysharp.zstring",
+            "expression": "2.5.0",
+            "define": "ZSTRING_AVAILABLE"
+        }
+    ],
     "noEngineReferences": false
 }

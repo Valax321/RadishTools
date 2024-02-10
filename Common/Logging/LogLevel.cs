@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace Radish.Logging2
+namespace Radish.Logging
 {
     [PublicAPI]
     public enum LogLevel

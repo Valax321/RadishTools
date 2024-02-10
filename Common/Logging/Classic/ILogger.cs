@@ -1,10 +1,11 @@
-﻿using System;
+﻿#if !ZSTRING_AVAILABLE
+using System;
 using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 
 namespace Radish.Logging
 {
-    public interface ILogger
+    public interface ILogger : ILoggerCommon
     {
         [StringFormatMethod("format")]
         void Info(string format, params object[] args);
@@ -23,5 +24,8 @@ namespace Radish.Logging
         
         void Exception(Exception exception);
         void Exception(Object context, Exception exception);
+        void Exception(Exception exception, string message, params object[] args);
+        void Exception(Object context, Exception exception, string message, params object[] args);
     }
 }
+#endif

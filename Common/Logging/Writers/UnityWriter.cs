@@ -2,12 +2,12 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Radish.Logging2.Writers
+namespace Radish.Logging.Writers
 {
-    public sealed class UnityWriter : LogWriter
+    public sealed class UnityWriter : ILogWriter
     {
         [HideInCallstack]
-        public override void Write(LogLevel level, Object context, string category, in ReadOnlySpan<char> formattedMessage)
+        public void Write(LogLevel level, Object context, string category, in ReadOnlySpan<char> formattedMessage)
         {
             Debug.unityLogger.Log(level switch
             {
