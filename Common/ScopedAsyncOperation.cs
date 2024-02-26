@@ -5,6 +5,8 @@ namespace Radish
 {
     public sealed class ScopedAsyncOperation : CustomYieldInstruction
     {
+        public delegate void OnCompleted();
+        
         public readonly struct ActivationToken
         {
             private readonly ScopedAsyncOperation m_Operation;
@@ -22,9 +24,15 @@ namespace Radish
         }
 
         public override bool keepWaiting => !m_Completed;
-
         private bool m_Completed;
 
+        public event OnCompleted onCompleted
+        {
+            add => m_CompletedCallback += value;
+            remove => m_CompletedCallback -= value;
+        }
+        private OnCompleted m_CompletedCallback;
+        
         [PublicAPI]
         public static ScopedAsyncOperation completed => new() { m_Completed = true };
 
@@ -39,11 +47,14 @@ namespace Radish
         private void Complete()
         {
             m_Completed = true;
+            m_CompletedCallback?.Invoke();
         }
     }
     
     public sealed class ScopedAsyncOperation<T> : CustomYieldInstruction
     {
+        public delegate void OnCompleted(in T result);
+        
         public readonly struct ActivationToken
         {
             private readonly ScopedAsyncOperation<T> m_Operation;
@@ -67,6 +78,13 @@ namespace Radish
 
         private bool m_Completed;
         
+        public event OnCompleted onCompleted
+        {
+            add => m_CompletedCallback += value;
+            remove => m_CompletedCallback -= value;
+        }
+        private OnCompleted m_CompletedCallback;
+        
         [PublicAPI]
         public static ScopedAsyncOperation<T> completed => new() { m_Completed = true, result = default };
 
@@ -84,6 +102,7 @@ namespace Radish
             {
                 m_Completed = true;
                 result = param;
+                m_CompletedCallback?.Invoke(result);
             }
         }
     }
