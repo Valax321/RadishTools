@@ -19,7 +19,11 @@ namespace Radish
             foreach (var asset in Selection.GetFiltered<Texture>(SelectionMode.Assets))
             {
                 Material mat;
+#if UNITY_6000_0_OR_NEWER
+                if (GraphicsSettings.defaultRenderPipeline)
+#else
                 if (GraphicsSettings.renderPipelineAsset)
+#endif
                 {
                     mat = new Material(GraphicsSettings.currentRenderPipeline.defaultMaterial)
                     {
