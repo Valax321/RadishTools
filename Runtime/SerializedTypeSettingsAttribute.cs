@@ -5,11 +5,11 @@ namespace Radish
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class SerializedTypeSettingsAttribute : Attribute
     {
-        public Type constraintType { get; }
+        public Type[] constraintTypes { get; }
 
-        public SerializedTypeSettingsAttribute(Type constraintType)
+        public SerializedTypeSettingsAttribute(params Type[] constraintTypes)
         {
-            this.constraintType = constraintType;
+            this.constraintTypes = constraintTypes;
         }
     }
 }

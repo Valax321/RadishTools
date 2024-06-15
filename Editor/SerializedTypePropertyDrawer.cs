@@ -50,10 +50,10 @@ namespace Radish
                 }
             }
             
-            private readonly Type m_BaseType;
+            private readonly IList<Type> m_BaseType;
             private readonly SerializedProperty m_Prop;
             
-            public SerializedTypeAdvancedDropdown(AdvancedDropdownState state, Type t, SerializedProperty prop) : base(state)
+            public SerializedTypeAdvancedDropdown(AdvancedDropdownState state, IList<Type> t, SerializedProperty prop) : base(state)
             {
                 m_BaseType = t;
                 m_Prop = prop;
@@ -64,21 +64,24 @@ namespace Radish
                 var root = new AdvancedDropdownItem("Types");
                 var dict = new Dictionary<string, NamespaceItem>();
 
-                foreach (var t in TypeCache.GetTypesDerivedFrom(m_BaseType))
+                foreach (var tt in m_BaseType)
                 {
-                    var ns = t.Namespace;
-                    if (ns == null)
-                        ns = "<global>";
-
-                    var nsParts = ns.Split('.');
-                    if (nsParts.Length == 0)
+                    foreach (var t in TypeCache.GetTypesDerivedFrom(tt))
                     {
-                        throw new InvalidOperationException();
-                    }
+                        var ns = t.Namespace;
+                        if (ns == null)
+                            ns = "<global>";
 
-                    var ns0 = nsParts[0];
-                    var item = dict.GetOrAddValue(ns0, (nn) => new NamespaceItem(nn), ns0);
-                    item.AddChild(nsParts[1..], t);
+                        var nsParts = ns.Split('.');
+                        if (nsParts.Length == 0)
+                        {
+                            throw new InvalidOperationException();
+                        }
+
+                        var ns0 = nsParts[0];
+                        var item = dict.GetOrAddValue(ns0, (nn) => new NamespaceItem(nn), ns0);
+                        item.AddChild(nsParts[1..], t);
+                    }
                 }
 
                 foreach (var (_, ns) in dict.OrderBy(x => x.Key))
@@ -116,13 +119,13 @@ namespace Radish
                 position = EditorGUI.PrefixLabel(position, label);
                 if (EditorGUI.DropdownButton(position, new GUIContent(t?.FullName ?? "None"), FocusType.Keyboard))
                 {
-                    var constraint = typeof(Object); // to make things less slow
+                    var constraints = new[] { typeof(Object) }; // to make things less slow
                     var constraintAttr = fieldInfo?.GetCustomAttribute<SerializedTypeSettingsAttribute>();
-                    if (constraintAttr?.constraintType != null)
-                        constraint = constraintAttr.constraintType;
+                    if (constraintAttr?.constraintTypes != null)
+                        constraints = constraintAttr.constraintTypes;
 
                     var dropdownState = s_State.GetOrAddValue(property.propertyPath, () => new AdvancedDropdownState());
-                    var dropdown = new SerializedTypeAdvancedDropdown(dropdownState, constraint, typeNameProp);
+                    var dropdown = new SerializedTypeAdvancedDropdown(dropdownState, constraints, typeNameProp);
                     dropdown.Show(position);
                 }
             }
