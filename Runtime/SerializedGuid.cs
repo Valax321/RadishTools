@@ -9,6 +9,9 @@ namespace Radish
     [Serializable]
     public struct SerializedGuid : ISerializationCallbackReceiver, IEquatable<SerializedGuid>
     {
+        /// <summary>
+        /// The actual <see cref="Guid"/> value.
+        /// </summary>
         public Guid value { get; private set; }
 
         [HideInInspector]

@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Radish
 {
+    /// <summary>
+    /// A dictionary that supports Unity's serialization system.
+    /// The key and value type must also be serializable by Unity.
+    /// </summary>
+    /// <typeparam name="TKey">The key type.</typeparam>
+    /// <typeparam name="TValue">The value type.</typeparam>
+    [PublicAPI]
     [Serializable]
     public sealed class SerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     {
@@ -56,6 +64,16 @@ namespace Radish
         }
     }
     
+    /// <summary>
+    /// A dictionary that supports Unity's serialization system.
+    /// The key and value type must also be serializable by Unity.
+    /// This version allows the use of a custom type for serialization
+    /// that is transformed into the dictionary at load time (to allow custom attributes on the key and value for instance).
+    /// </summary>
+    /// <typeparam name="TKey">The key type</typeparam>
+    /// <typeparam name="TValue">The value type</typeparam>
+    /// <typeparam name="TKeyValuePair">The custom key-value pair type.</typeparam>
+    [PublicAPI]
     [Serializable]
     public sealed class SerializedDictionary<TKey, TValue, TKeyValuePair> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver 
         where TKeyValuePair : IKeyValuePair<TKey, TValue>, new()
