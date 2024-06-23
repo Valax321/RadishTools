@@ -67,5 +67,10 @@ namespace Radish
         {
             return (type != null ? type.GetHashCode() : 0);
         }
+
+        public override string ToString()
+        {
+            return !string.IsNullOrEmpty(m_TypeName) ? m_TypeName : "<none>";
+        }
     }
 }
