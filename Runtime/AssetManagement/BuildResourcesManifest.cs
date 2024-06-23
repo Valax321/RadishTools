@@ -104,7 +104,7 @@ namespace Radish
         {
             if (m_EntryLookup.TryGetValue(asset.guid, out var entry))
             {
-                if (!entry.type.IsSubclassOf(typeof(T)))
+                if (!typeof(T).IsAssignableFrom(entry.type))
                 {
                     Debug.LogWarningFormat(this, "Asset in manifest was of type {0}, which is not a subclass of {1}", entry.type.FullName, typeof(T).FullName);
                     return string.Empty;
