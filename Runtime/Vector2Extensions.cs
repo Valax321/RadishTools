@@ -20,6 +20,16 @@ namespace Radish
         {
             return new Vector2(v.x, y);
         }
+        
+        public static float GetRandomRangeValue(this Vector2 v)
+        {
+            return Random.Range(v.x, v.y);
+        }
+
+        public static int GetRandomRangeValue(this Vector2Int v)
+        {
+            return Random.Range(v.x, v.y);
+        }
     
         #endregion
 

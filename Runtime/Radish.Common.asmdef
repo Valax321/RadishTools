@@ -2,7 +2,8 @@
     "name": "Radish.Common",
     "rootNamespace": "Radish",
     "references": [
-        "GUID:33661e06c33d31b4c9223810bf503247"
+        "GUID:33661e06c33d31b4c9223810bf503247",
+        "GUID:8dbfd4694fdecd34495bb83f1b6586aa"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -16,6 +17,11 @@
             "name": "com.cysharp.zstring",
             "expression": "2.5.0",
             "define": "ZSTRING_AVAILABLE"
+        },
+        {
+            "name": "com.sisus.hierarchy-folders",
+            "expression": "1.2",
+            "define": "SISUS_AVAILABLE"
         }
     ],
     "noEngineReferences": false
