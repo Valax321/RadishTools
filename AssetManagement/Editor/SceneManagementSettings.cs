@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Radish.SceneManagement
+namespace Radish.AssetManagement
 {
     public sealed class SceneManagementSettings : ProjectSettingsRepository
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Radish.SceneManagement
+namespace Radish.AssetManagement
 {
     [CustomEditor(typeof(SceneManagementSettings))]
     public class SceneManagementSettingsEditor : Editor

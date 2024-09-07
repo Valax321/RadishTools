@@ -1,11 +1,10 @@
-﻿#if UNITY_EDITOR
-using UnityEditor.SceneManagement;
-#endif
+﻿
 using JetBrains.Annotations;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Radish.SceneManagement
+namespace Radish.AssetManagement
 {
     [PublicAPI]
     public static class SafeSceneManager

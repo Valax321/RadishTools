@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     [Serializable]
     public sealed class SoftSceneReference : ISoftObjectReference, IEquatable<SoftSceneReference>

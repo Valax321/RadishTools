@@ -1,0 +1,20 @@
+{
+    "name": "Radish.AssetManagement.Editor",
+    "rootNamespace": "Radish.AssetManagement",
+    "references": [
+        "GUID:592247c6e20354e9ebae4130abc86cb2",
+        "GUID:8bdea64740185594d97902a78bd70061",
+        "GUID:6603ed48f3353b541a1b325b7ef493ec"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Radish.AssetManagement",
+    "rootNamespace": "Radish.AssetManagement",
+    "references": [
+        "GUID:8bdea64740185594d97902a78bd70061"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     public sealed class BuildScenesManifest : ScriptableObject, ISerializationCallbackReceiver
     {

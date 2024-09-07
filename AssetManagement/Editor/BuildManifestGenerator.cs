@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     internal sealed class BuildManifestGenerator : IPreprocessBuildWithReport
     {

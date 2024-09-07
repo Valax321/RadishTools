@@ -2,7 +2,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     [Serializable]
     public sealed class SoftAssetReference<T> : ISoftObjectReference where T : Object

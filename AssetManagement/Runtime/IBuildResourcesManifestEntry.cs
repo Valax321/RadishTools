@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     public interface IBuildResourcesManifestEntry
     {

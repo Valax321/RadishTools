@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEditor;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     [CustomPropertyDrawer(typeof(SoftSceneReference))]
     internal sealed class SoftScenePropertyDrawer : SoftObjectPropertyDrawerBase

@@ -1,12 +1,12 @@
-﻿using System;
-#if ODIN_INSPECTOR
-using Sirenix.Utilities.Editor;
+﻿#if ODIN_INSPECTOR
 #endif
+using System;
+using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Radish
+namespace Radish.AssetManagement
 {
     internal abstract class SoftObjectPropertyDrawerBase : PropertyDrawer
     {

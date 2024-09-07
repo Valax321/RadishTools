@@ -1,4 +1,4 @@
-﻿namespace Radish
+﻿namespace Radish.AssetManagement
 {
     public interface ISoftObjectReference
     {
