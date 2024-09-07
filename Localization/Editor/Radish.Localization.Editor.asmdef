@@ -1,0 +1,26 @@
+{
+    "name": "Radish.Localization.Editor",
+    "rootNamespace": "Radish.Localization",
+    "references": [
+        "GUID:d9082b9d537264578878b1d4273c7b4a",
+        "GUID:8bdea64740185594d97902a78bd70061",
+        "GUID:6603ed48f3353b541a1b325b7ef493ec"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "CsvHelper.dll",
+        "YamlDotNet.dll",
+        "Sirenix.OdinInspector.Editor.dll",
+        "Sirenix.OdinInspector.Attributes.dll",
+        "Sirenix.Utilities.Editor.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

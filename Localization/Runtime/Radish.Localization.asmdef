@@ -1,0 +1,26 @@
+{
+    "name": "Radish.Localization",
+    "rootNamespace": "Radish.Localization",
+    "references": [
+        "GUID:8bdea64740185594d97902a78bd70061",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "SmartFormat.dll",
+        "Sirenix.OdinInspector.Attributes.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.ugui",
+            "expression": "2.0.0",
+            "define": "PROJECT_HAS_TEXTMESH_PRO"
+        }
+    ],
+    "noEngineReferences": false
+}
