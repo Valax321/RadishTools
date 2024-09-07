@@ -34,6 +34,15 @@ namespace Radish
             return v;
         }
 
+        public static Vector3 WithRandomConeOffset(this Vector3 dir, float maxAngle)
+        {
+            var xSpread = Random.Range(-maxAngle, maxAngle);
+            var ySpread = Random.Range(-maxAngle, maxAngle);
+            var spread = new Vector3(xSpread, ySpread, 0.0f);
+            var newRot = Quaternion.LookRotation(dir) * Quaternion.Euler(spread);
+            return newRot * Vector3.forward;
+        }
+
         #endregion
 
         #region Vector3Int
