@@ -24,5 +24,17 @@ namespace Radish
             var (start, length) = range.GetOffsetAndLength(list.Count);
             return list.GetRange(start, length);
         }
+
+        public static bool TryGetAtIndex<T>(this IReadOnlyList<T> list, int index, out T outItem)
+        {
+            if (!(index < 0 || index >= list.Count))
+            {
+                outItem = list[index];
+                return true;
+            }
+
+            outItem = default;
+            return false;
+        }
     }
 }
