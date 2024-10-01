@@ -70,6 +70,9 @@ namespace Radish.Localization
 
         public void WriteTo<T>(TMP_Text dest, T dataSource)
         {
+            Debug.Assert(m_Table);
+            Debug.Assert(m_Key != null);
+            
             if (!m_Table.TryGetString(m_Key, CultureInfo.CurrentCulture, out var f))
             {
                 dest.SetText(m_Key);
@@ -84,6 +87,9 @@ namespace Radish.Localization
         
         public void WriteTo(TMP_Text dest)
         {
+            Debug.Assert(m_Table);
+            Debug.Assert(m_Key != null);
+            
             if (!m_Table.TryGetString(m_Key, CultureInfo.CurrentCulture, out var f))
             {
                 dest.SetText(m_Key);
