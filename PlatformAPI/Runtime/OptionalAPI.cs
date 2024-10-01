@@ -8,7 +8,7 @@ namespace Radish.PlatformAPI
     {
         public bool isSupported { get; }
         public T impl { get; }
-        public string unsupportedReason { get; }
+        public string unsupportedReason { get; } = string.Empty;
 
         internal OptionalAPI(T api)
         {
@@ -22,6 +22,7 @@ namespace Radish.PlatformAPI
         internal OptionalAPI(string unsupportedReason)
         {
             isSupported = false;
+            this.unsupportedReason = unsupportedReason;
         }
 
         public static OptionalAPI<T> CreateForImplementation(T interfaceImpl)
