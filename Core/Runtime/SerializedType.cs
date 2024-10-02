@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -13,6 +14,15 @@ namespace Radish
     public sealed class SerializedType : ISerializationCallbackReceiver, IEquatable<SerializedType>
     {
         [SerializeField] private string m_TypeName;
+
+        public SerializedType()
+        {
+        }
+
+        public SerializedType(Type type)
+        {
+            this.type = type;
+        }
         
         /// <summary>
         /// The actual type resolved. Can be null if no type was assigned, or there was an error resolving the type.
