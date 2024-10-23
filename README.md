@@ -1,4 +1,7 @@
-﻿# Radish Common Tools
+## NOTE: 
+This version of the project has been replaced by [Radish.Core](https://github.com/Valax321/Radish.Core) and associated projects.
+
+# Radish Common Tools
 
 This repository provides a common set of libraries and tools that I use in all my Unity projects.
 
